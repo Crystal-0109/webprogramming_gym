@@ -10,7 +10,7 @@
 
 .Calendar th, td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 0.5rem;
   text-align: center;
 }
 
@@ -28,11 +28,11 @@
 }
 
 .Calendar .calendarButton {
-  margin-top: 10px;
+  margin-top: 0.625rem;
 }
 
 .Calendar .button-container button {
-  padding: 8px;
-  margin: 0 5px;
+  padding: 0.5rem;
+  margin: 0 0.313px;
   cursor: pointer;
 }

@@ -1,0 +1,11 @@
+.mainNoticeImg img {
+  width: 15rem;
+}
+
+.map {
+  width: 30rem;
+}
+
+#salecode {
+  cursor: pointer;
+}
