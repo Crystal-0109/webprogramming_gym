@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.Calendar {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  background: white;
+}
+
+.Calendar button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.Calendar .calWrapper {
+  /* width: 28.125rem; */
+  /* width: 30rem; */
+  height: 20rem;
+  background: #fff;
+  border-radius: 0.625rem;
+  padding: 1.563rem;
+}
+
+.Calendar .calWrapper .navi {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.875rem;
+}
+
+.Calendar .calWrapper .navi .current_date {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.Calendar .calWrapper .nav button {
+  width: 2.375rem;
+  height: 2.375rem;
+  font-size: 1.875rem;
+  color: #878787;
+}
+
+.Calendar .calCalendar ul {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.Calendar .calCalendar .weeks li {
+  font-weight: 500;
+}
+
+.Calendar .calCalendar .days {
+  margin-bottom: 1.25rem;
+}
+
+.Calendar .calCalendar ul li {
+  width: calc(100% / 7);
+  position: relative;
+}
+
+.Calendar .calCalendar .days li {
+  z-index: 1;
+  margin-top: 1.875;
+  cursor: pointer;
+  height: 2rem;
+}
+
+.Calendar .days li.inactive {
+  color: #aaa;
+}
+
+.Calendar .days li.active {
+  color: #fff;
+}
+
+.Calendar .calCalendar .days li::before {
+  position: absolute;
+  content: '';
+  height: 2.5rem;
+  width: 2.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.Calendar .days li:hover::before {
+  background: #f2f2f2;
+}
+
+.Calendar .days li.active::before {
+  background: #008aff;
+}
+
+.Calendar .days li.weekend {
+  color: red;
+}
+
+.Calendar .days li.may17 {
+  color: red;
+}
