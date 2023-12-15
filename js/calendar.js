@@ -1,56 +1,74 @@
-const currentDate = document.querySelector('.current_date');
-const daysTag = document.querySelector(".days");
-const prevNextIcon = document.querySelectorAll(".navi button");
+const holidays = ["1/1", "3/1", "5/5", "6/6", "8/15", "10/3", "12/25"];
 
-let date = new Date();
-let currYear = date.getFullYear();
-let currMonth = date.getMonth();
+        function daysInMonth(month, year) {
+            return new Date(year, month + 1, 0).getDate();
+        }
 
-const months = ["January", "February", "March", "April", "May", "June", "July",
-              "August", "September", "October", "November", "December"];
+        function getFirstDayOfMonth(month, year) {
+            return new Date(year, month, 1).getDay();
+        }
 
-currentDate.innerHTML = `${months[currMonth]} ${currYear}`;
+        function generateCalendar(month, year) {
+            const calendarBody = document.getElementById('calendar-body');
+            calendarBody.innerHTML = '';
 
-const publicHolidays = [5, 17];
+            const totalDays = daysInMonth(month, year);
+            const firstDay = getFirstDayOfMonth(month, year);
 
-const renderCalendar = () => {
-  let firstDayofMonth = new Date(currYear, currMonth, 1).getDay();
-  let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(); 
-  let lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay();
-  let lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
-  let liTag = '';
+            let dayCounter = 1;
 
-  for (let i = firstDayofMonth; i > 0; i--) {
-    liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
-  }
+            for (let i = 0; i < 6; i++) {
+                const row = document.createElement('tr');
 
-  for (let i = 1; i <= lastDateofMonth; i++) {
-    let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";
-    let isMay17 = currMonth === 4 && i === 17 ? "may17" : "";
-    let isWeekend = (firstDayofMonth + i - 1) % 7 === 6 || (firstDayofMonth + i - 1) % 7 === 0 ? "weekend" : "";
-    liTag += `<li class="${isToday} ${isWeekend} ${isMay17} ">${i}</li>`;
-  }
+                for (let j = 0; j < 7; j++) {
+                    const cell = document.createElement('td');
+                    if ((i === 0 && j < firstDay) || dayCounter > totalDays) {
+                        cell.textContent = '';
+                    } else {
+                        cell.textContent = dayCounter;
 
-  for (let i = lastDayofMonth; i < 6; i++) {
-    liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
-  }
+                        const dateStr = `${month + 1}/${dayCounter}`;
+                        if (holidays.includes(dateStr)) {
+                            cell.classList.add('holiday');
+                        }
 
-  currentDate.innerText = `${months[currMonth]} ${currYear}`;
-	daysTag.innerHTML = liTag;
-};
-renderCalendar();
+                        if (j === 0 || j === 6) {
+                            // Sunday or Saturday (weekend)
+                            cell.classList.add('weekend');
+                        }
 
-prevNextIcon.forEach(icon => {
-  icon.addEventListener("click", () => {
-    currMonth = icon.id === 'prev' ? currMonth - 1 : currMonth + 1;
+                        dayCounter++;
+                    }
 
-    if (currMonth < 0 || currMonth > 11) {
-      date = new Date(currYear, currMonth, new Date().getDate());
-      currYear = date.getFullYear();
-      currMonth = date.getMonth();
-    } else {
-      date = new Date();
-    }
-    renderCalendar();
-  })
-})
+                    row.appendChild(cell);
+                }
+
+                calendarBody.appendChild(row);
+            }
+
+            const monthName = new Intl.DateTimeFormat('ko-KR', { month: 'long' }).format(new Date(year, month));
+            document.getElementById('calendar-title').textContent = `${year}년 ${monthName} 달력`;
+        }
+
+        let currentMonth = (new Date()).getMonth();
+        let currentYear = (new Date()).getFullYear();
+
+        function prevMonth() {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            generateCalendar(currentMonth, currentYear);
+        }
+
+        function nextMonth() {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            generateCalendar(currentMonth, currentYear);
+        }
+
+        generateCalendar(currentMonth, currentYear);
