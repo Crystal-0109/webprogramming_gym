@@ -1,4 +1,4 @@
-const holidays = ["1/1", "3/1", "5/5", "6/6", "8/15", "10/3", "12/25"];
+const holidays = ["1/1", "3/1", "5/5", "5/17", "6/6", "8/15", "10/3", "12/25"];
 
         function daysInMonth(month, year) {
             return new Date(year, month + 1, 0).getDate();
