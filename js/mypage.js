@@ -60,9 +60,17 @@ window.onload = function() {
 
     // 쿠폰 코드 입력 활성화
     const couponRadio = document.getElementById('coupon');
+    const cashRadio = document.getElementById('cash');
+    const cardRadio = document.getElementById('card');
     const couponCodeInput = document.getElementById('couponCode');
     couponRadio.addEventListener('click', function() {
       couponCodeInput.disabled = false;
+    });
+    cashRadio.addEventListener('click', function() {
+      couponCodeInput.disabled = true;
+    });
+    cardRadio.addEventListener('click', function() {
+      couponCodeInput.disabled = true;
     });
 
     const paymentButton = document.getElementById('online-payment');
