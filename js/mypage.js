@@ -24,7 +24,27 @@ window.onload = function() {
 
     const lockerElement = document.getElementById('locker');
     if (locker == '-1') {
-      lockerElement.textContent = '등록안됨'
+      const lockerregisterButton = document.createElement('button');
+      lockerregisterButton.textContent = '사물함 등록';
+      lockerregisterButton.addEventListener('click', function() {
+        // 프롬프트 창을 통해 사용자의 사물함 번호를 입력받기
+        const newLocker = prompt('사물함 번호를 입력하세요:');
+        
+        // 사용자가 취소를 누르지 않은 경우에만 처리
+        if (newLocker !== null) {
+          // 세션 스토리지의 loginUser의 locker 속성에 등록
+          currentUser.locker = newLocker;
+          sessionStorage.setItem('loginUser', JSON.stringify(currentUser));
+          
+          // 등록된 사물함 번호를 HTML에 출력
+          lockerElement.textContent = newLocker;
+
+          alert('사물함이 등록되었습니다.');
+        }
+      });
+
+      // 버튼을 HTML에 추가
+      lockerElement.appendChild(lockerregisterButton);
     } else {
       lockerElement.textContent = locker;
     }
@@ -37,17 +57,4 @@ window.onload = function() {
       daysRemainingElement.textContent = daysRemaining + '일';
     }
   }
-
-
-
-
-
-  
-
-
-
-
-
-  
-  
 }
