@@ -1,10 +1,10 @@
 // localStorage.clear();
 
 const users = [
-  {name: '관리자', id: 'admin', password: 'admin'},
-  {name: '행복', id: 'happy', password: 'call'},
-  {name: '행운', id: 'luck', password: 'key'},
-  {name: '안녕', id: 'how', password: 'areyou'}
+  {name: '관리자', id: 'admin', password: 'admin', deadline: '2023-12-31', locker: '-1'},
+  {name: '행복', id: 'happy', password: 'call', deadline: '2023-10-31', locker: '1234'},
+  {name: '행운', id: 'luck', password: 'key', deadline: '2023-12-20', locker: '4321'},
+  {name: '안녕', id: 'how', password: 'areyou', deadline: '2024-02-28', locker: '-1'}
 ]
 const usersJSON = JSON.stringify(users)
 
@@ -18,10 +18,11 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
   var password = document.getElementById('password').value;
 
   const matchedUser = users.find(users => users.id === username && users.password === password);
-
+  const loginUser = [];
   // 일치하는 사용자가 있으면 로그인 성공을 출력
   if (matchedUser) {
       alert('로그인 성공!');
+      
       location.href='mypage.html';
   } else {
       alert('일치하는 사용자를 찾을 수 없습니다. 아이디와 비밀번호를 확인하세요.');
