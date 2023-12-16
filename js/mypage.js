@@ -4,13 +4,9 @@ window.onload = function() {
   const currentUser = JSON.parse(currentUserJSON);
 
   if (!currentUser) {
-    const loginPrompt = prompt('마이페이지를 열려면 먼저 로그인이 필요합니다.로그인페이지로이동');
+    const loginPrompt = alert('마이페이지를 열려면 먼저 로그인이 필요합니다.로그인페이지로이동');
 
-    if (loginPrompt && loginPrompt.toLowerCase() === '예') {
-      location.href = 'login.html';
-    } else {
-      alert('로그인이 필요합니다. 마이페이지를 이용하려면 로그인');
-    }
+    location.href = 'login.html';
   } else {
     // 현재 사용자의 기한(deadline) 가져오기
     const deadline = currentUser ? currentUser.deadline : 'N/A';
@@ -27,7 +23,12 @@ window.onload = function() {
     deadlineElement.textContent = deadline;
 
     const lockerElement = document.getElementById('locker');
-    lockerElement.textContent = locker;
+    if (locker == '-1') {
+      lockerElement.textContent = '등록안됨'
+    } else {
+      lockerElement.textContent = locker;
+    }
+    
 
     const daysRemainingElement = document.getElementById('leftday');
     if (daysRemaining < 0) {
