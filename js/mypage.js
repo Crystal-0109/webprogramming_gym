@@ -63,15 +63,28 @@ window.onload = function() {
     const cashRadio = document.getElementById('cash');
     const cardRadio = document.getElementById('card');
     const couponCodeInput = document.getElementById('couponCode');
+    const cardnumInput = document.getElementById('cardnum');
+    const cardperiodInput = document.getElementById('cardperiod');
+    const cardcvcInput = document.getElementById('cardcvc');
     couponRadio.addEventListener('click', function() {
       couponCodeInput.disabled = false;
+      cardnumInput.disabled = true;
+      cardperiodInput.disabled = true;
+      cardcvcInput.disabled = true;
     });
     cashRadio.addEventListener('click', function() {
       couponCodeInput.disabled = true;
+      cardnumInput.disabled = true;
+      cardperiodInput.disabled = true;
+      cardcvcInput.disabled = true;
     });
     cardRadio.addEventListener('click', function() {
       couponCodeInput.disabled = true;
+      cardnumInput.disabled = false;
+      cardperiodInput.disabled = false;
+      cardcvcInput.disabled = false;
     });
+
 
     const paymentButton = document.getElementById('online-payment');
     paymentButton.addEventListener('click', function() {
