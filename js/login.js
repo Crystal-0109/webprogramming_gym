@@ -1,4 +1,4 @@
-// localStorage.clear();
+localStorage.clear();
 
 const users = [
   {name: '관리자', id: 'admin', password: 'admin', deadline: '2023-12-31', locker: '-1'},
@@ -22,7 +22,7 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
   // 일치하는 사용자가 있으면 로그인 성공을 출력
   if (matchedUser) {
       alert('로그인 성공!');
-      
+      sessionStorage.setItem('loginUser', JSON.stringify(matchedUser));
       location.href='mypage.html';
   } else {
       alert('일치하는 사용자를 찾을 수 없습니다. 아이디와 비밀번호를 확인하세요.');
