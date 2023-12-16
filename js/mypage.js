@@ -109,6 +109,9 @@ window.onload = function() {
       if (couponCode === 'X-MAS') {
         const discountAmount = 0.2 * totalAmount; // 20% 할인
         totalAmount -= discountAmount;
+      } else {
+        alert("쿠폰이 알맞지 않습니다.");
+        return;
       }
       console.log(paymentMethod);
 
@@ -120,9 +123,14 @@ window.onload = function() {
         }
       } else if (paymentMethod == 'coupon') {
         alert("쿠폰으로 " + totalAmount + '원 결제되었습니다.');
-      } else {
+      } else if (paymentMethod == 'cash') {
         alert("현금으로 " + totalAmount + '원 결제되었습니다.');
       }
+      if (!paymentMethod) {
+        alert('결제 수단을 선택해주세요.');
+        return; // 결제 수단이 선택되지 않았으면 여기서 함수 종료
+      }
+      
       // 결제 수단에 따라 메시지 출력
       // let paymentMessage = '';
       // switch (paymentMethod) {
