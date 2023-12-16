@@ -30,7 +30,7 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
   var password = document.getElementById('password').value;
 
   // Local Storage에서 저장된 데이터 가져오기
-  // var savedUsers = localStorage.getItem('users');
+  // var Users = localStorage.getItem('users');
   const matchedUser = users.find(users => users.id === username && users.password === password);
 
   // 일치하는 사용자가 있으면 로그인 성공을 출력
@@ -42,7 +42,7 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
 
 
   // 입력한 아이디와 비밀번호가 Local Storage에 저장된 데이터와 일치하는지 확인
-  // if (username === savedUsername && password === savedPassword) {
+  // if (username === Users.id && password === Users.password) {
   //   alert('로그인 성공');
   // } else {
   //   alert('아이디 또는 비밀번호를 확인해주세요');
