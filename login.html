@@ -31,16 +31,17 @@
                 </div>
             </nav>
             <div>
-              <div>
-                <label> 아이디 : <input id="id" type="text"></label>
-              </div>
-              <div>
-                <label> 비밀번호 : <input id="pw" type="text"></label>
-              </div>
-              <div>
-                <a href="join.html"><input type="button" value="회원가입"></a>
-                <input type="button" value="로그인" onclick="login();"> 
-              </div>
+              <form id="login-form">
+                <input type="text" id="username" placeholder="아이디">
+                <input type="password" id="password" placeholder="비밀번호">
+                <button type="submit">로그인</button>
+              </form>
+              <form id="register-form">
+                <input type="text" id="new-name" placeholder="이름">
+                <input type="text" id="new-username" placeholder="아이디">
+                <input type="password" id="new-password" placeholder="비밀번호">
+                <button type="submit">회원가입</button>
+              </form>
             </div>
         </main>
         <!-- Footer-->
