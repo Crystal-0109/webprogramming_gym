@@ -45,23 +45,28 @@ window.onload = function() {
 
       // 버튼을 HTML에 추가
       lockerElement.appendChild(lockerregisterButton);
-    } else {
-      lockerElement.textContent = locker;
-    }
+  } else {
+    lockerElement.textContent = locker;
+  }
     
 
-    const daysRemainingElement = document.getElementById('leftday');
-    if (daysRemaining < 0) {
-      daysRemainingElement.textContent = "마감 지남"
-    } else {
-      daysRemainingElement.textContent = daysRemaining + '일';
+      const daysRemainingElement = document.getElementById('leftday');
+      if (daysRemaining < 0) {
+        daysRemainingElement.textContent = "마감 지남"
+      } else {
+        daysRemainingElement.textContent = daysRemaining + '일';
+      }
     }
-  }
 
-  
+    // 쿠폰 코드 입력 활성화
+    const couponRadio = document.getElementById('coupon');
+    const couponCodeInput = document.getElementById('couponCode');
+    couponRadio.addEventListener('click', function() {
+      couponCodeInput.disabled = false;
+    });
 
-  const paymentButton = document.getElementById('online-payment');
-  paymentButton.addEventListener('click', function() {
+    const paymentButton = document.getElementById('online-payment');
+    paymentButton.addEventListener('click', function() {
     // 월 선택 값 가져오기
     const selectedMonths = document.getElementById('months').value;
 
