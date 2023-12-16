@@ -41,6 +41,47 @@
                 </tr>
               </table>
             </div>
+            <div>
+              <form id="online-payment">
+                <button type="submit">온라인 결제</button>
+              </form>
+              <label for="months">결제 월 선택 (1~12): </label>
+              <select id="months" name="months">
+                <!-- 1월부터 12월까지의 옵션 생성 -->
+                <option value="1">1월</option>
+                <option value="2">2월</option>
+                <option value="3">3월</option>
+                <option value="4">4월</option>
+                <option value="5">5월</option>
+                <option value="6">6월</option>
+                <option value="7">7월</option>
+                <option value="8">8월</option>
+                <option value="9">9월</option>
+                <option value="10">10월</option>
+                <option value="11">11월</option>
+                <option value="12">12월</option>
+                <!-- 나머지 월도 동일하게 생성 -->
+              </select>
+
+              <br>
+
+              <label>결제 수단 선택:</label>
+              <input type="radio" id="cash" name="paymentMethod" value="cash">
+              <label for="cash">현금</label>
+
+              <input type="radio" id="card" name="paymentMethod" value="card">
+              <label for="card">카드</label>
+
+              <input type="radio" id="coupon" name="paymentMethod" value="coupon">
+              <label for="coupon">쿠폰</label>
+
+              <br>
+
+              <label for="couponCode">쿠폰 코드 입력:</label>
+              <input type="text" id="couponCode" name="couponCode">
+
+              <br>
+            </div>
         </main>
         <!-- Footer-->
         <footer class="bg-dark py-4 mt-auto">

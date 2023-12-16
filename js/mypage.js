@@ -57,4 +57,56 @@ window.onload = function() {
       daysRemainingElement.textContent = daysRemaining + '일';
     }
   }
+
+  
+
+  const paymentButton = document.getElementById('online-payment');
+  paymentButton.addEventListener('click', function() {
+    // 월 선택 값 가져오기
+    const selectedMonths = document.getElementById('months').value;
+
+    // 현금, 카드, 쿠폰 선택 값 가져오기
+    const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+
+    // 결제 유효성 검사
+    if (selectedMonths < 1 || selectedMonths > 12) {
+      alert('1에서 12 사이의 월을 선택해주세요.');
+      return;
+    }
+
+    // 총 결제 금액 계산
+    let totalAmount = 10000 * selectedMonths; // 월당 10,000원
+
+    // 3개월 번들 할인 적용
+    if (selectedMonths >= 3) {
+      totalAmount -= 1000 * Math.floor(selectedMonths / 3); // 3개월 번들 할인 - 1,000원씩
+    }
+
+    // 쿠폰 할인 적용
+    const couponCode = document.getElementById('couponCode').value;
+    if (couponCode === 'X-MAS') {
+      const discountAmount = 0.2 * totalAmount; // 20% 할인
+      totalAmount -= discountAmount;
+    }
+
+    // 결제 수단에 따라 메시지 출력
+    let paymentMessage = '';
+    switch (paymentMethod) {
+      case 'cash':
+        paymentMessage = '현금으로 ';
+        break;
+      case 'card':
+        paymentMessage = '카드로 ';
+        break;
+      case 'coupon':
+        paymentMessage = '쿠폰으로 ';
+        break;
+      default:
+        alert('결제 수단을 선택해주세요.');
+        return;
+    }
+
+    // 최종 결제 메시지 출력
+    alert(paymentMessage + totalAmount + '원 결제되었습니다.');
+  });
 }
