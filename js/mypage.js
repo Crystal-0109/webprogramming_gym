@@ -109,16 +109,6 @@ window.onload = function() {
         totalAmount -= 1000 * Math.floor(selectedMonths / 3); // 3개월 번들 할인 - 1,000원씩
       }
 
-      // 쿠폰 할인 적용
-      const couponCode = document.getElementById('couponCode').value;
-      if (couponCode === 'X-MAS') {
-        const discountAmount = 0.2 * totalAmount; // 20% 할인
-        totalAmount -= discountAmount;
-      } else {
-        alert("쿠폰이 알맞지 않습니다.");
-        return;
-      }
-      console.log(paymentMethod);
 
       if (paymentMethod == 'card') {
         if (cardnumInput.value.length !== 16 || cardperiodInput.value.length !== 4 || cardcvcInput.value.length !== 3) {
@@ -127,6 +117,16 @@ window.onload = function() {
           alert("카드로 " + totalAmount + '원 결제되었습니다.');
         }
       } else if (paymentMethod == 'coupon') {
+        // 쿠폰 할인 적용
+        const couponCode = document.getElementById('couponCode').value;
+        if (couponCode === 'X-MAS') {
+          const discountAmount = 0.2 * totalAmount; // 20% 할인
+          totalAmount -= discountAmount;
+        } else {
+          alert("쿠폰이 알맞지 않습니다.");
+          return;
+        }
+  
         alert("쿠폰으로 " + totalAmount + '원 결제되었습니다.');
       } else if (paymentMethod == 'cash') {
         alert("현금으로 " + totalAmount + '원 결제되었습니다.');
@@ -136,25 +136,7 @@ window.onload = function() {
         return; // 결제 수단이 선택되지 않았으면 여기서 함수 종료
       }
       
-      // 결제 수단에 따라 메시지 출력
-      // let paymentMessage = '';
-      // switch (paymentMethod) {
-      //   case 'cash':
-      //     paymentMessage = '현금으로 ';
-      //     break;
-      //   case 'card':
-      //     paymentMessage = '카드로 ';
-      //     break;
-      //   case 'coupon':
-      //     paymentMessage = '쿠폰으로 ';
-      //     break;
-      //   default:
-      //     alert('결제 수단을 선택해주세요.');
-      //     return;
-      // }
-
-      // // 최종 결제 메시지 출력
-      // alert(paymentMessage + totalAmount + '원 결제되었습니다.');
+      
 
   });
 }
