@@ -11,12 +11,17 @@ window.onload = function() {
     // 현재 사용자의 기한(deadline) 가져오기
     const deadline = currentUser ? currentUser.deadline : 'N/A';
     const locker = currentUser ? currentUser.locker : 'N/A';
+    const userNm = currentUser ? currentUser.name : 'N/A';
 
     // 현재 날짜와 기한 사이의 차이 계산하기
     const currentDate = new Date();
     const deadlineDate = new Date(deadline);
     const timeDifference = deadlineDate - currentDate;
     const daysRemaining = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+    //사용자 이름 출력하기
+    const userNmElement = document.getElementById('userNm');
+    userNmElement.textContent = userNm;
 
     // HTML에 기한 출력하기
     const deadlineElement = document.getElementById('deadlineday');

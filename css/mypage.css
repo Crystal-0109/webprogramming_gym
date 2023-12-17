@@ -1,0 +1,141 @@
+table th {
+  font-size: 18px;
+  z-index: 1;
+  transform: translate3d(0, 0, 0);
+  color: white;
+  font-size: 18px;
+  padding: 17px;
+  text-align: center;
+}
+
+#locker button {
+  border: none;
+  background-color: white;
+  color: #212529;
+  padding: 5px 10px 5px 10px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+#online-payment button {
+  border: none;
+  background-color: #212529;
+  color: white;
+  padding: 5px 10px 5px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.mypage-box {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+
+.mypage-box .user-info {
+  z-index: 1;
+  transform: translate3d(0, 0, 0);
+  color: white;
+  display: flex;
+}
+
+.mypage-box .user-info p {
+  margin-top: 53px;
+  margin-left: 5px;
+}
+
+.mypage-box svg {
+  z-index: 1;
+  transform: translate3d(0, 0, 0);
+  margin-left: 20px;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.payment-box {
+  margin-top: 20px;
+}
+
+.payment-box label {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.payment-box select {
+  border-radius: 8px;
+  margin-left: 10px;
+  padding: 0px 10px 0px 10px;
+}
+
+.payment-box input {
+  border-radius: 8px;
+  margin-left: 10px;
+}
+
+#couponCode, #cardnum {
+  margin-left: 46px;
+}
+
+#cardcvc {
+  margin-left: 56px;
+}
+
+.wave {
+  opacity: .8;
+  position: absolute;
+  top: 5%;
+  left: 32%;
+  background: #212529;
+  width: 700px;
+  height: 700px;
+  margin-left: -250px;
+  margin-top: -250px;
+  transform-origin: 50% 48%;
+  border-radius: 43%;
+  animation: drift 3000ms infinite linear;
+}
+
+.wave.-three {
+  animation: drift 5000ms infinite linear;
+}
+
+.wave.-two {
+  animation: drift 7000ms infinite linear;
+  opacity: .1;
+  background: yellow;
+}
+
+.table-box {
+  box-shadow: 0 2px 30px rgba(black, 1);
+  background: lighten(#5f5f5a, 10%);
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  padding: 20px 130px 340px 100px;
+  color: white;
+  border-radius: 10px;
+  background-color: antiquewhite;
+  
+}
+
+.table-box:after {
+  content: '';
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(#e8a, 1), rgba(#def, 0) 80%, rgba(white, .5));
+  z-index: 11;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes drift {
+  from { transform: rotate(0deg); }
+  from { transform: rotate(360deg); }
+}

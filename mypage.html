@@ -7,6 +7,7 @@
         <meta name="author" content="" />
         <title>헬스장</title>
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/mypage.css" rel="stylesheet" />
     </head>
     <body class="d-flex flex-column">
         <main class="flex-shrink-0">
@@ -27,72 +28,85 @@
                     </div>
                 </div>
             </nav>
-            <div>
-              <table>
-                <tr>
-                  <th>마감일</th>
-                  <th>남은 일수</th>
-                  <th>사물함</th>
-                </tr>
-                <tr>
-                  <th id="deadlineday"></th>
-                  <th id="leftday"></th>
-                  <th id="locker"></th>
-                </tr>
-              </table>
-            </div>
-            <div>
-              <form id="online-payment">
-                <button type="submit">온라인 결제</button>
-              </form>
-              <label for="months">결제 월 선택 (1~12): </label>
-              <select id="months" name="months">
-                <!-- 1월부터 12월까지의 옵션 생성 -->
-                <option value="1">1월</option>
-                <option value="2">2월</option>
-                <option value="3">3월</option>
-                <option value="4">4월</option>
-                <option value="5">5월</option>
-                <option value="6">6월</option>
-                <option value="7">7월</option>
-                <option value="8">8월</option>
-                <option value="9">9월</option>
-                <option value="10">10월</option>
-                <option value="11">11월</option>
-                <option value="12">12월</option>
-                <!-- 나머지 월도 동일하게 생성 -->
-              </select>
-
-              <br>
-
-              <label>결제 수단 선택:</label>
-              <input type="radio" id="cash" name="paymentMethod" value="cash">
-              <label for="cash">현금</label>
-
-              <input type="radio" id="card" name="paymentMethod" value="card">
-              <label for="card">카드</label>
-
-              <input type="radio" id="coupon" name="paymentMethod" value="coupon">
-              <label for="coupon">쿠폰</label>
-
-              <br>
-
-              <label for="couponCode">쿠폰 코드 입력:</label>
-              <input type="text" id="couponCode" name="couponCode" disabled>
-
-              <br>
-              <label for="cardnum">카드 번호 입력:</label>
-              <input type="text" id="cardnum" name="cardnum" disabled>
-
-              <br>
-              <label for="cardperiod">카드 유효기간 입력:</label>
-              <input type="text" id="cardperiod" name="cardperiod" disabled>
-
-              <br>
-              <label for="cardcvc">카드 cvc 입력:</label>
-              <input type="text" id="cardcvc" name="cardcvc" disabled>
-
-              <br>
+            <div class="mypage-box">
+                <div class="table-box">
+                  <div class='wave -one'></div>
+                  <div class='wave -two'></div>
+                  <div class='wave -three'></div>
+                    <div class="user-info">
+                      <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="44" cy="44" r="44" fill="#212529"/>
+                        <path d="M45 21C47.9174 21 50.7153 22.1589 52.7782 24.2218C54.8411 26.2847 56 29.0826 56 32C56 34.9174 54.8411 37.7153 52.7782 39.7782C50.7153 41.8411 47.9174 43 45 43C42.0826 43 39.2847 41.8411 37.2218 39.7782C35.1589 37.7153 34 34.9174 34 32C34 29.0826 35.1589 26.2847 37.2218 24.2218C39.2847 22.1589 42.0826 21 45 21ZM45 48.5C57.155 48.5 67 53.4225 67 59.5V65H23V59.5C23 53.4225 32.845 48.5 45 48.5Z" fill="#FCFBF0"/>
+                      </svg>
+                      <p style="font-size: 18px; font-weight: bold; margin-left: 30px; margin-top: 50px;" id="userNm">사용자 이름</p>
+                      <p>님 어서오세요!</p>
+                    </div>
+                  <table>
+                    <tr>
+                      <th>마감일</th>
+                      <th>남은 일수</th>
+                      <th>사물함</th>
+                    </tr>
+                    <tr>
+                      <th id="deadlineday"></th>
+                      <th id="leftday"></th>
+                      <th id="locker"></th>
+                    </tr>
+                  </table>
+                </div>
+                <div class="payment-box">
+                  <form id="online-payment">
+                    <button type="submit">온라인 결제</button>
+                  </form>
+                  <label for="months">결제 월 선택 (1~12) </label>
+                  <select id="months" name="months">
+                    <!-- 1월부터 12월까지의 옵션 생성 -->
+                    <option value="1">1월</option>
+                    <option value="2">2월</option>
+                    <option value="3">3월</option>
+                    <option value="4">4월</option>
+                    <option value="5">5월</option>
+                    <option value="6">6월</option>
+                    <option value="7">7월</option>
+                    <option value="8">8월</option>
+                    <option value="9">9월</option>
+                    <option value="10">10월</option>
+                    <option value="11">11월</option>
+                    <option value="12">12월</option>
+                    <!-- 나머지 월도 동일하게 생성 -->
+                  </select>
+    
+                  <br>
+    
+                  <label>결제 수단 선택</label>
+                  <input type="radio" id="cash" name="paymentMethod" value="cash">
+                  <label for="cash">현금</label>
+    
+                  <input type="radio" id="card" name="paymentMethod" value="card">
+                  <label for="card">카드</label>
+    
+                  <input type="radio" id="coupon" name="paymentMethod" value="coupon">
+                  <label for="coupon">쿠폰</label>
+    
+                  <br>
+    
+                  <label for="couponCode">쿠폰 코드 입력</label>
+                  <input type="text" id="couponCode" name="couponCode" disabled>
+    
+                  <br>
+                  <label for="cardnum">카드 번호 입력</label>
+                  <input type="text" id="cardnum" name="cardnum" disabled>
+    
+                  <br>
+                  <label for="cardperiod">카드 유효기간 입력</label>
+                  <input type="text" id="cardperiod" name="cardperiod" disabled>
+    
+                  <br>
+                  <label for="cardcvc">카드 cvc 입력</label>
+                  <input type="text" id="cardcvc" name="cardcvc" disabled>
+    
+                  <br>
+                </div>
             </div>
         </main>
         <!-- Footer-->
