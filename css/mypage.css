@@ -6,7 +6,21 @@ table th {
   font-size: 18px;
   padding: 17px;
   text-align: center;
+  justify-content: center;
+  align-items: center;
+  
 }
+
+.tablemargin {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* table {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+} */
 
 #locker button {
   border: none;
@@ -29,7 +43,7 @@ table th {
 }
 
 .mypage-box {
-  width: 50%;
+  width: 70%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -41,6 +55,7 @@ table th {
   transform: translate3d(0, 0, 0);
   color: white;
   display: flex;
+  justify-content: center;
 }
 
 .mypage-box .user-info p {
@@ -58,6 +73,8 @@ table th {
 
 .payment-box {
   margin-top: 20px;
+  width: 600px;
+  margin-left: 30px;
 }
 
 .payment-box label {
@@ -116,11 +133,12 @@ table th {
   position: relative;
   overflow: hidden;
   transform: translate3d(0, 0, 0);
-  padding: 20px 130px 340px 100px;
+  padding: 20px 10px 240px 10px;
+  margin-bottom: 30px;
   color: white;
   border-radius: 10px;
   background-color: antiquewhite;
-  
+  width: 600px;
 }
 
 .table-box:after {
