@@ -1,3 +1,20 @@
 video {
   width: 1rem;
 }
+.left {
+  flex: 1;
+  max-width: 600px; /* 왼쪽 영역의 최대 너비, 원하는 값으로 조절하세요 */
+  margin-right: 20px; /* 오른쪽과의 간격, 필요에 따라 조절하세요 */
+}
+
+.right {
+  flex: 1;
+  max-width: 600px; /* 오른쪽 영역의 최대 너비, 원하는 값으로 조절하세요 */
+}
+
+/* 기존 코드에서 수정 없이 기존 스타일 유지 */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

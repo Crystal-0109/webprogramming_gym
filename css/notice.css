@@ -69,6 +69,9 @@ a{
 .board_list .num{
   width: 10%
 }
+.board_list img, .board_list video {
+  width: 30px;
+}
 .board_list .title{
   width:60%;
   text-align: left;
@@ -108,7 +111,7 @@ a{
   background: #000;
   color: #fff;
 }
-.bord_page a:first-child{
+.board_page a:first-child{
   border-left: 1px solid #ddd;
 }
 .board_list .title a {
