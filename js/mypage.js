@@ -4,7 +4,7 @@ window.onload = function() {
   const currentUser = JSON.parse(currentUserJSON);
 
   if (!currentUser) {
-    const loginPrompt = alert('마이페이지를 열려면 먼저 로그인이 필요합니다.로그인페이지로이동');
+    const loginPrompt = alert('마이페이지를 열려면 먼저 로그인이 필요합니다. 로그인 페이지로 이동');
 
     location.href = 'login.html';
   } else {
